@@ -104,5 +104,7 @@ Click each of the two jobs to see the output in a web terminal. Identify the git
 
 Hint: it’s listed near the top of each job’s output.
 
+![alt text](image.png)
+
 
 
