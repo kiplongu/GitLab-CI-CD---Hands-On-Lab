@@ -90,3 +90,19 @@ test1:
         - echo "For example run a test suite"
 This file defines two stages: build and test. The build1 job executes during the build stage, running all of the commands in script. The test1 job executes during the test stage, running all of the commands in script.
 
+
+# Task C. View a Pipeline’s Status, Stages, Jobs, and GitLab Runner
+When you commit your .gitlab-ci.yml file, a pipeline is created. A pipeline comprises of jobs and stages. In the previous section, you defined two stages: build and test. Each of these stages contained jobs, which were defined in script. In this section, you will view the pipeline created from your .gitlab-ci.yml file.
+
+In the left navigation pane, click Build > Pipelines to see an overview of all pipelines. The top row in the overview shows the pipeline that started a few seconds ago, when you committed .gitlab-ci.yml. The status icon at the left of the row should say either running or passed.
+
+Click the status icon of the top row to see the details of the most recent pipeline. You’ll see columns representing the pipeline’s stages, and widgets representing jobs within each stage.
+
+Note: The order of execution for stages generally reads left to right. In this example, the build stage is the leftmost column, since it is the first stage to execute.
+
+Click each of the two jobs to see the output in a web terminal. Identify the gitlab-runner for each job
+
+Hint: it’s listed near the top of each job’s output.
+
+
+
