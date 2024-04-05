@@ -48,3 +48,45 @@ Ensure that the Enable Static Application Security Testing (SAST) checkbox remai
 
 Click the Create project button.
 
+# Task B. Add a .gitlab-ci.yml File
+To use GitLab CI/CD, you start with a .gitlab-ci.yml file at the root of your project. The .gitlab-ci.yml file contains the configurations for your CI/CD pipeline. In this section, you will create a simple gitlab-ci.yml file.
+
+Create a new file in the main branch by clicking (+) > This directory > New file.
+
+In the Filename field, type .gitlab-ci.yml
+
+Select the Bash template from the Apply a template dropdown. This will pre-populate the file.
+
+To create a minimal .gitlab-ci.yml file:
+
+Delete all lines above build1.
+Delete all lines below echo "For example run a test suite" in the test1 section.
+Add build and test stages by pasting these lines at the top of the file.
+
+stages:
+  - build
+  - test
+Note: Keep in mind that YAML files should be indented with two spaces. Your web IDE may try to use a tab with 4 spaces. Simply use the backspace to set 2 spaces if you are not copying and pasting the examples.
+
+Set the commit message to Creating a simple .gitlab-ci.yml file, and set the Target Branch to main.
+
+Click Commit changes.
+
+After committing the changes, you will have a .gitlab-ci.yml that looks like this:
+
+stages:
+- build
+- test
+
+build1:
+  stage: build
+  script:
+    - echo "Do your build here"
+
+test1:
+    stage: test
+    script:
+        - echo "Do a test here"
+        - echo "For example run a test suite"
+This file defines two stages: build and test. The build1 job executes during the build stage, running all of the commands in script. The test1 job executes during the test stage, running all of the commands in script.
+
