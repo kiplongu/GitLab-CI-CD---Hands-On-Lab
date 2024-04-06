@@ -172,6 +172,55 @@ Verify that the gitlab-runner service has started by running this command:
 If you see Service is running in the output, the gitlab-runner service is working as expected.
 
 
+# Task F. Register a Specific Runner Dedicated to your Project
+At this point, you have installed a runner on your system. To allow GitLab to use this runner for CI/CD jobs, you need to register the runner in the UI.
+
+In your CICD Demo project, in the left navigation pane, click Settings > CI/CD.
+
+Scroll down to the Runners section. Click the Expand button next to it.
+
+Under the Project runners section, click the New project runner button.
+
+Select your operating system (Linux, MacOS, or Windows).
+
+Under Tags, select Run untagged jobs. Leave the rest of the options blank.
+
+An untagged runner will run any jobs. To control the jobs that a runner can run, you can define tags for the runner. To learn more about this process, click here
+
+Click the Create runner button.
+
+From the next page presented, copy the command under Step 1 to your clipboard.
+
+Back in your terminal, paste and run the command you copied in the previous step. Press Enter for the instance URL and Enter for the runner name to use the default values. (You can give this a custom name if desired).
+
+When prompted for the executor, enter shell
+
+Confirm that your gitlab-runner registered correctly by running the appropriate command(s) for your OS:
+
+In a Linux terminal:
+
+sudo gitlab-runner list
+In a macOS terminal:
+
+gitlab-runner list
+In a normal (not elevated) Windows PowerShell window:
+
+cd C:\GitLab-Runner
+./gitlab-runner.exe list
+Note: If your runner is registered correctly, you should see an output like this:
+gitlab-runner run Executor=shell Token=your-gl-token URL=https://gitlab.com
+
+If you’re on Windows, follow these additional instructions to configure your gitlab-runner to use the right command to start PowerShell:
+Open C:\GitLab-Runner\config.toml in a text editor.
+
+Change this line:
+
+shell = "pwsh"
+to this:
+
+shell = "powershell"
+Save the file.
+
 
 
 
