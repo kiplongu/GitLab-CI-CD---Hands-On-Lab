@@ -54,3 +54,29 @@ func main() {
 }
 In the Commit message field, type Add main.go file, ensure the Target Branch is set to main, and click Commit changes.
 
+
+
+# Task B: Add Artifacts to your Pipeline
+In the left sidebar, click Code > Repository.
+
+Select your .gitlab-ci.yml file to view its contents. Click Edit > Edit single file. Paste the following snippet at the end of the file.
+
+build app:
+  image: golang:latest
+  stage: build
+  script:
+    - go build -o app main.go
+  artifacts:
+    paths:
+    - app
+    expire_in: 1 hour
+In the Commit message field, type Add CI artifacts, ensure the Target Branch is set to main, and click Commit changes.
+
+In the left-hand navigation pane, click Build > Pipelines and click the status icon for the most recent pipeline run.
+
+When the build app job finishes, click it to review the job’s output log.
+
+Note: If the job fails with a message about being unable to find go.mod, retry the job until it passes. This is an intermittent Go build bug.
+
+In the Job artifacts panel on the right of the page, click Browse and notice that the app artifact created by the build app pipeline job is available for download.
+
