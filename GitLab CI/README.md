@@ -108,3 +108,21 @@ Hint: it’s listed near the top of each job’s output.
 
 
 
+# Task D. Prepare to Install GitLab Runner Locally
+Jobs are executed by runners. If your project is hosted on GitLab.com, various SaaS runners are provided to build, test, and deploy your application on different environments. In some cases, you may want to host your own runners. Sections D, E, and F will outline the process of installing and registering a runner on your GitLab instance.
+
+Depending on which OS you’re on, run the appropriate command(s):
+
+In a Linux terminal:
+sudo gitlab-runner status
+In a macOS terminal:
+gitlab-runner status
+In a Windows PowerShell window:
+cd C:\GitLab-Runner
+./gitlab-runner.exe status
+If the command gives an output like: gitlab-runner: Service is running, then you already have a runner installed on your system. If a runner is already installed on your system, skip to Part F below. If the command throws an error, continue with the next section.
+
+
+
+
+
