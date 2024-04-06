@@ -124,5 +124,55 @@ If the command gives an output like: gitlab-runner: Service is running, then you
 
 
 
+# Task E. Install the GitLab Runner Binary on your Computer
+This section outlines the steps required to install a GitLab runner on your computer. Follow only the instructions that match the operating system you’re using.
+
+Linux
+Follow steps 1 and 2 only in this documentation.
+
+Verify that the gitlab-runner service has started by running this command:
+
+sudo gitlab-runner status
+If you see Service is running in the output, the gitlab-runner service is working as expected.
+
+macOS
+Follow steps 1 and 2 only in this documentation.
+
+Install gitlab-runner as a service and start the service:
+
+cd ~
+gitlab-runner install
+gitlab-runner start
+Verify that the gitlab-runner service has started by running this command:
+
+gitlab-runner status
+If you see Service is running in the output, the gitlab-runner service is working as expected.
+
+Windows
+Follow steps 1 and 2 only in this documentation.
+
+Open an elevated PowerShell window:
+
+Click Start.
+
+Type PowerShell
+
+Right-click Windows PowerShell.
+
+Click Run as administrator.
+
+From the elevated PowerShell window, install and start the gitlab-runner service:
+
+cd C:\GitLab-Runner
+./gitlab-runner.exe install
+./gitlab-runner.exe start
+Verify that the gitlab-runner service has started by running this command:
+
+./gitlab-runner.exe status
+If you see Service is running in the output, the gitlab-runner service is working as expected.
+
+
+
+
 
 
