@@ -123,3 +123,32 @@ Note: When defining variables, watch your indentation. Global variables must be 
 
 In the Commit message field, type Add custom variables, ensure the Target Branch set to main, and click Commit changes.
 
+
+
+# Task B: Add Group and Project-level Variables
+There are two types of variables we will discuss in this section: group and project-level variables. These variables are accessible at either the group or project level, allowing for a wider application of CI/CD variables.
+
+Navigate to your My Test Group group by clicking it from the breadcrumbs at the top of the page.
+
+In the left-hand navigation pane, click Settings > CI/CD
+
+In the Variables section, click the Expand button.
+
+Click Add Variable. Enter group_level_variable in the Key dialog box. Hint: watch your spelling, capitalization, and underscores!
+
+Type I'm a variable set at the group level in the Value dialog box.
+
+Leave all other options at their defaults and click Add variable.
+
+Note: This is a group level variable, meaning it is accessible to any projects inside of My Test Group.
+
+Navigate to your project by clicking your My Test Group in the breadcrumbs at the top of the page, and then clicking on the CICD Demo project.
+
+Repeat steps 2 to 6, entering project_level_variable in the Key field and I'm a variable set at the project level in the Value field.
+
+Note: This is a project level variable, meaning it is accessible only inside the current project.
+
+Setting variables does not trigger a pipeline run, so click Build > Pipelines in the left navigation pane, click the Run Pipeline button, and click the second Run Pipeline button.
+
+Click on the widget for the environment variables job from your running pipeline and verify the variables and their values are correctly displayed in the job output.
+
