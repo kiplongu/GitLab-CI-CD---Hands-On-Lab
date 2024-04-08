@@ -175,3 +175,21 @@ Under Run for branch name or tag, make sure Dev is selected.
 Click on the Run Pipeline button.
 
 Your deploy release job should be the only job available. Since the job has been set to manual, it will not run until you explicitly start it. Click on the arrow next to the job to start the job
+
+
+
+# Task B3: Running the deploy staging job
+Open your .gitlab-ci.yml file and review the rules specified in the deploy release rules section. It will only run when A) The branch name (represented by $COMMIT_REF_NAME) is equal to main.
+
+In the top left corner, click on the button that says Dev, and set the option to be main instead.
+
+Click on Build > Pipelines.
+
+Click on the Run Pipeline button.
+
+Under Run for branch name or tag, make sure main is selected.
+
+Click on the Run Pipeline button.
+
+Your deploy staging job should be the only job that is running.
+
