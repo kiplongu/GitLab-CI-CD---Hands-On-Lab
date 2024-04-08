@@ -153,3 +153,25 @@ Click on the Run Pipeline button.
 Your deploy review job should be the only job that should be running.
 
 
+# Task B2: Running the deploy release Job
+Open your .gitlab-ci.yml file and review the rules specified in the deploy release rules section. It will only run when A) The branch name (represented by $COMMIT_REF_NAME) is not equal to main, and B) there is a tag on the branch (represented by $COMMIT_REF_TAG)
+
+We will need to make a tag for this job to run. To make a tag, click on Code > Tags.
+
+Click on the New tag button.
+
+Type in 1.0 into the Tag name section.
+
+Change the Create from option to display Dev instead.
+
+Click the Create tag button.
+
+Click on Build > Pipelines.
+
+Click on the Run Pipeline button.
+
+Under Run for branch name or tag, make sure Dev is selected.
+
+Click on the Run Pipeline button.
+
+Your deploy release job should be the only job available. Since the job has been set to manual, it will not run until you explicitly start it. Click on the arrow next to the job to start the job
