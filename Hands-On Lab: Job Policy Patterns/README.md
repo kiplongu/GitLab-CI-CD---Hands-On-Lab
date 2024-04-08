@@ -129,3 +129,27 @@ Optional: Experiment with triggering pipelines using different branches and tags
 
 Hint: Look at the rules keyword in the relevant .gitlab-ci.yml job definitions.
 
+
+Solutions:
+# Task B1: Running the deploy review Job:
+Review the rules specified in the deploy review’s rules section. It will only run when A) The branch name (represented by $COMMIT_REF_NAME) is not equal to main, and B) there is no tag on the branch (represented by $COMMIT_REF_TAG).
+
+Note: a variable used with an if keyword on its own is checking if said variable has any value associated with it. If it has any value, regardless of what that value is, the statement is true. This includes values that would be considered false in other programming languages, such as False. If there is no value, the statement is false. A variable with whitespace as its value is considered false as well.
+
+Create a new branch by clicking on Code > Branches.
+
+Click the New branch button.
+
+Type Dev in the branch name section, and click Create branch
+
+Click on Build > Pipelines.
+
+Click on the Run Pipeline button.
+
+Under Run for branch name or tag, make sure Dev is selected.
+
+Click on the Run Pipeline button.
+
+Your deploy review job should be the only job that should be running.
+
+
