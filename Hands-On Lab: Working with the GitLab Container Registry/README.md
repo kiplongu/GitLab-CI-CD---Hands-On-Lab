@@ -1,0 +1,33 @@
+GitLab CI/CD - Hands-On Lab: Working with the GitLab Container Registry
+This Hands-On Guide walks you through the lab exercises in the GitLab CI/CD course.
+Estimate time to complete: 15 - 20 minutes
+
+We are transitioning to the latest version of this course. If your group URL starts with https://spt.gitlabtraining.cloud, please use the Version 15.x instructions.
+
+Objectives
+Docker is a platform commonly used by developers to build container applications. It is possible to generate Docker containers as a part of a CI/CD build process. In this lab, you will learn how to define a Dockerfile for your project, and integrate it into your .gitlab-ci.yml file.
+
+# Task A: Add a Dockerfile
+Open your CICD Demo project from earlier labs.
+
+Add a new file to the CICD Demo project by selecting + > This directory > New file
+
+In the Filename field, enter Dockerfile
+
+Paste the following into the body of the new file.
+
+FROM golang:1.11-alpine as builder
+WORKDIR /usr/build
+ADD main.go .
+RUN go build -o app .
+
+FROM alpine:latest
+
+WORKDIR /usr/src
+
+COPY --from=builder /usr/build/app .
+EXPOSE 8080
+
+CMD ["/usr/src/app"]
+In the Commit message field, type Add Dockerfile, ensure the Target Branch is set to main, and click Commit changes.
+
