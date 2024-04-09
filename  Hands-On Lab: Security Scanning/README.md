@@ -33,4 +33,22 @@ Click Commit changes.
 Note: This file has a command injection vulnerability, which can lead to security breaches. We are going to use the SAST Scanner to detect issues in our code.
 
 
+# Task B. Creating and Running a SAST Scan
+Open your CICD Demo project from previous labs.
+
+Click on your .gitlab-ci.yml file to view its contents.
+
+Click Edit > Edit single file. Paste the following snippet at the end of the file.
+
+include:
+  - template: Jobs/SAST.gitlab-ci.yml
+In the Commit message field, type Enable SAST, leave the Target Branch set to main, and click Commit changes.
+
+Navigate to the pipeline that was started by this change and click the semgrep-sast job to ensure that it’s running.
+
+Note: It might take a minute or two for the Build stage to complete first.
+
+To view the results of the SAST scan, click Secure > Vulnerability Report in the left-hand navigation pane. In the Tool drop-down list, select SAST. Click on any vulnerabilities to learn more about them.
+
+
 
