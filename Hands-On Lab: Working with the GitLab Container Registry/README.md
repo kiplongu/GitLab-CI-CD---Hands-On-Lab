@@ -48,3 +48,12 @@ build image:
     - docker build -t $IMAGE .
     - docker push $IMAGE
 In the Commit message field, type Add "build image" job definition, ensure the Target Branch is set to main, and click Commit changes.
+
+
+# Task C: Ensure the Pipeline is Running
+Go to Build > Pipelines. Click the most recent pipeline run.
+
+Click the widget for the build image job to see its progress. Wait for the job to complete.
+
+In the left navigation pane, click Deploy > Container Registry and view the container that was just uploaded by the build image job.
+
