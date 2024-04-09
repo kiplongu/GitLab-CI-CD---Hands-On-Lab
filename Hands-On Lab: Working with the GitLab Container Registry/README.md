@@ -31,3 +31,20 @@ EXPOSE 8080
 CMD ["/usr/src/app"]
 In the Commit message field, type Add Dockerfile, ensure the Target Branch is set to main, and click Commit changes.
 
+# Task B: Define a build image Job
+In the left navigation bar, click Code > Repository
+
+Open the .gitlab-ci.yml file and click Edit > Edit single file. Paste the following new job definition at the end of the file.
+
+build image:
+  stage: build
+  image: docker:18
+  services:
+    - docker:18-dind
+  variables:
+    IMAGE: $CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG:$CI_COMMIT_SHA
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $IMAGE .
+    - docker push $IMAGE
+In the Commit message field, type Add "build image" job definition, ensure the Target Branch is set to main, and click Commit changes.
