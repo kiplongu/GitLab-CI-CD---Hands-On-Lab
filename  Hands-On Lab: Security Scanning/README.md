@@ -51,4 +51,30 @@ Note: It might take a minute or two for the Build stage to complete first.
 To view the results of the SAST scan, click Secure > Vulnerability Report in the left-hand navigation pane. In the Tool drop-down list, select SAST. Click on any vulnerabilities to learn more about them.
 
 
+# Task C. Fix the Key Issues
+In the sidebar, navigate to Code > Repository.
+
+Click the run.py file.
+
+On the run.py file, click the blue Edit dropdown and select Edit single file.
+
+The scan showed that lines 1 and 4 contained a vulnerability.
+
+# main.py Line 1
+import subprocess
+# main.py Line 4
+subprocess.run(["ping", ip])
+The problem is that these lines use user input to run a system command. In this situation, a user could craft an input that causes the application to execute an unintended command. To resolve this, you can either remove the command, or remove the user input from the command.
+
+Remove the two lines from the code. This is what the file should look like now.
+
+print("Attempting to connect to the server")
+print("Application authentication was successful")
+In the commit field, type Fix changes as suggested by SAST scan, leave the Target Branch set to main, and click Commit changes
+
+Note: The SAST scan will need to run again in order to update the changes.
+
+Once the pipeline has finished running, click Secure > Vulnerability Report in the left-handed navigation pane. In the Tool drop-down list, select SAST. Review to see if the security issues have been remediated.
+
+
 
